@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример использования SimpleFormValidator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" id="username" name="username" required placeholder="Введите имя" />
+        <input type="email" id="email" name="email" required placeholder="Введите email" />
+        <button type="submit">Отправить</button>
+    </form>
+    <div id="successMessage" style="display: none;">Регистрация прошла успешно!</div>
+
+    <script>
+        class SimpleFormValidator {
+            constructor(formId) {
+                this.form = document.getElementById(formId);
+            }
+
+            isValid() {
+                const username = this.form.username.value;
+                const email = this.form.email.value;
+                
+                return username.trim() !== '' && email.trim() !== '';
+            }
+        }
+
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const formValidator = new SimpleFormValidator('myForm');
+            if (formValidator.isValid()) {
+                document.getElementById('successMessage').style.display = 'block'; 
+                this.reset(); 
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+    "run": true,
+    "rules": {
+        "username": {
+            "required": true,
+            "minLength": 3,
+            "maxLength": 20
+        },
+        "email": {
+            "required": true,
+            "email": true
+        }
+    },
+    "messages": {
+        "username": {
+            "required": "Имя пользователя обязательно для заполнения.",
+            "minLength": "Имя пользователя должно содержать не менее 3 символов.",
+            "maxLength": "Имя пользователя не должно превышать 20 символов."
+        },
+        "email": {
+            "required": "Email обязателен.",
+            "email": "Введите корректный адрес электронной почты."
+        }
+    }
+}
